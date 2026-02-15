@@ -1,8 +1,4 @@
-// A.S.T.R.A. — Asset Storage, Tiering, and Rapid Access
-// Reference implementation (C++17). Single-file example.
-//
 // Compile: g++ -std=c++17 astra.cpp -O2 -pthread -o astra
-//
 // DISCLAIMER: placeholder IO and GPU code. Replace with platform-specific APIs.
 
 #include <bits/stdc++.h>
@@ -10,8 +6,7 @@ using namespace std;
 using chrono_ms = chrono::milliseconds;
 using Clock = chrono::steady_clock;
 
-// ----------------------------- Configuration ------------------------------
-
+// Configuration
 namespace ASTRAConfig {
     constexpr size_t RAM_BUDGET_BYTES = 200 * 1024 * 1024;   // 200 MB RAM budget for decoded assets
     constexpr size_t VRAM_BUDGET_BYTES = 120 * 1024 * 1024;  // 120 MB VRAM budget
@@ -22,8 +17,7 @@ namespace ASTRAConfig {
     constexpr int PREFETCH_HORIZON = 3; // how many chunks ahead to prefetch by default
 }
 
-// ------------------------------ Utilities ---------------------------------
-
+// Utilities 
 static inline string nowStr() {
     auto t = chrono::system_clock::now();
     time_t tt = chrono::system_clock::to_time_t(t);
@@ -39,8 +33,7 @@ string to_hex(T v) {
     return oss.str();
 }
 
-// ------------------------------ Types -------------------------------------
-
+// Types
 using AssetID = uint64_t;
 using ChunkID = uint64_t;
 using Priority = int; // 0 highest ... N low
@@ -737,3 +730,4 @@ int main() {
     cerr << "Demo finished." << endl;
     return 0;
 }
+
