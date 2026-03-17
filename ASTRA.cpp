@@ -72,9 +72,8 @@ struct AssetMeta {
     float perceptualImportance = 0.5f;
 };
 
-// ------------------------- Simulated Disk Storage ---------------------------
+// Simulated Disk Storage
 // In real engine, replace with file IO, package systems, streaming server, CDN, etc.
-
 class DiskSimulator {
 public:
     DiskSimulator() = default;
@@ -109,8 +108,7 @@ private:
     mutable mutex mutex_;
 };
 
-// --------------------------- Asset & Package --------------------------------
-
+// Asset & Package
 struct AssetPackage {
     AssetMeta meta;
     // chunk indices are 0..chunkCount-1, stored on disk simulator
@@ -127,8 +125,7 @@ struct AssetResidency {
     bool pinned = false; // prevents eviction
 };
 
-// --------------------------- LRU + Priority Cache ---------------------------
-
+// LRU + Priority Cache
 template<typename Key, typename Value>
 class LRUCache {
 public:
@@ -224,8 +221,7 @@ private:
     size_t usedBytes_;
 };
 
-// --------------------------- Thread Pool ------------------------------------
-
+// Thread Pool
 class ThreadPool {
 public:
     ThreadPool(size_t n) : stop_(false) {
