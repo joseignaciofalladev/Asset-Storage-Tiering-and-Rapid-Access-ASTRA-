@@ -268,8 +268,7 @@ private:
     bool stop_;
 };
 
-// --------------------------- ASTRA Core ------------------------------------
-
+// ASTRA Core
 class ASTRA {
 public:
     ASTRA(DiskSimulator &disk)
@@ -654,8 +653,7 @@ private:
     mutex ioMutex_;
 };
 
-// ----------------------------- Demo / Test ----------------------------------
-
+// Demo
 int main() {
     srand((unsigned)time(nullptr));
     DiskSimulator disk;
@@ -689,7 +687,6 @@ int main() {
             cd.checksum = cs;
             chunks.push_back(cd);
         }
-
         astra.registerPackage(pkg, chunks);
     }
 
